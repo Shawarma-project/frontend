@@ -4,29 +4,30 @@ import TouchAppIcon from '@material-ui/icons/TouchApp';
 import { useStyles } from '../styles';
 import Logo from '../components/Logo';
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
     const styles = useStyles();
     return (
         <Card>
-            <CardActionArea>
-                <Box className={[styles.root, styles.blue]}>
-                    <Box className={[styles.main, styles.center]}>
-                        <Typography component="h6" variant="h6">
-                            Shawarma Culinária Árabe
-                        </Typography>
-                        <Typography component="h1" variant="h1">
-                            Peça <br /> & pague <br /> aqui
-                        </Typography>
-                        <TouchAppIcon fontSize="large"></TouchAppIcon>
-                    </Box>
-                    <Box className={[styles.center, styles.golden]}>
+            <CardActionArea onClick={() => props.history.push('/choose')}>
+                <Box className={[styles.root, styles.black]}>
+                     <Box className={[styles.center, styles.golden]}>
                         <Logo large ></Logo>
                         <Typography component="h5" variant="h5">
-                            Toque para começar
+                            Seja bem-vindo!
                         </Typography>
+                     </Box>
+                     <Box className={[styles.main, styles.center]}>
+                        <Typography component="h6" variant="h6">
+                            Aqui você consegue deliciosos
+                        </Typography>
+                        <img src="/imagens/shawarma.jpg" alt=""/>
+                        <Typography component="h1" variant="h1">
+                            Lanches Árabes
+                        </Typography>
+                        <TouchAppIcon fontSize="large"></TouchAppIcon>
                     </Box>
                 </Box>
             </CardActionArea>
         </Card>
-    )
+    );
 }
