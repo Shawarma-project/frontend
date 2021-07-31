@@ -20,7 +20,6 @@ const Product = mongoose.model (
     'products',
     new mongoose.Schema({
     name: String,
-    description: String,
     image: String,
     price: Number,
     category: String,
@@ -40,7 +39,7 @@ app.get('/api/products/seed',async (req, res) => {
 
 app.get('/api/products', async (req, res) => {
     const { category } = req.query;
-    const products = await Product.find(category ? { category } : {});
+    const products = await Product.find (category ? { category } : {});
     res.send (products);
 });
 

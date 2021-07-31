@@ -1,27 +1,45 @@
+import { CardContent } from '@material-ui/core';
 import { 
     Avatar, 
     Box,
+    Card,
+    CardActionArea,
+    CardMedia,
     CircularProgress, 
     Grid, 
     List, 
     ListItem,
+    Typography,
  } from '@material-ui/core';
-import Axios from "axios";
 import { Alert } from '@material-ui/lab';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react'
+import { listCategories, listProducts } from '../actions';
 import Logo from '../components/Logo';
+import { Store } from '../Store';
 import { useStyles } from '../styles';
 
 export default function OrderScreen() {
-    const [categories, setCategories] = useState([])
-    const [loading, setLoading] = useState(true)
     const styles = useStyles();
-
-    useEffect(async() => {
-        const { data } = await Axios.get('http://localhost:5000/api/categories');
-        setCategories( data );
-        setLoading(false)
-    }, []);
+    const [categoryName, setCategoryName] = useState('');
+    const { state, dispatch } = useContext(Store);
+    const { categories, loading, error } = state.categoryList;
+    const {
+        products,
+        loading: loadingProducts,
+        error: errorProducts,
+    } = state.productList;
+    useEffect(() => {
+        if (!categories) {
+        listCategories(dispatch);
+     } else {
+         listProducts(dispatch, categories, categoryName);
+     }
+    }, [dispatch, categories, categoryName]);
+    
+    const categoryClickHandler = (name) => {
+        setCategoryName(name);
+        listProducts(dispatch, categories, categoryName);
+    };
 
     return (
      <Box className={styles.root}>
@@ -31,13 +49,17 @@ export default function OrderScreen() {
                     <List>
                         {loading ? (
                             <CircularProgress />
+                            ): error ? (
+                                <Alert severity="error">{error}</Alert>
                             ) : (
                                 <>
                                 <ListItem button>
                                     <Logo></Logo>
                                 </ListItem>
                                 {categories.map((category) => (
-                                 <ListItem button key={category.name}>
+                                 <ListItem button key={category.name}
+                                     onclick={() => categoryClickHandler(category.name)}
+                                     >
                                      <Avatar alt={category.name} src={category.image} />
                                      </ListItem>
                                 ))}
@@ -46,7 +68,55 @@ export default function OrderScreen() {
                     </List>
                 </Grid>
                 <Grid item md={10}>
-                    Lista de Comida
+                <Typography
+                    gutterBottom
+                    className={styles.title}
+                    variant="h2"
+                    component="h2"
+                    >
+                    {categoryName || 'Cardápio'}
+                    </Typography>
+                    <Grid container spacing={1}>
+                    {loadingProducts ? (
+                        <CircularProgress />
+                      ) : errorProducts ? (
+                            <Alert severity="error">{errorProducts}</Alert>
+                        ) : (
+                        products.map((product) => <Grid item md={6}>
+                            <Card
+                              className={styles.card}
+                            >
+                                <CardActionArea>
+                                    <CardMedia
+                                    component="img"
+                                    alt={product.name}
+                                    image={product.image}
+                                    className={styles.media}
+                                    />
+                                </CardActionArea>
+                                <CardContent>
+                                <Typography
+                                gutterBottom
+                                variant="body2"
+                                color="textPrimary"
+                                component="p"
+                                >
+                                {product.name}
+                                </Typography>
+                                <Box className={styles.cardFooter}>
+                                    <Typography
+                                    variant="body2"
+                                    color="textPrimary"
+                                    component="p"
+                                    >
+                                    {product.price}
+                                    </Typography>
+                                </Box>
+                                </CardContent>
+                            </Card>
+                        </Grid>)
+                        )}
+                  </Grid>
                 </Grid>
             </Grid>
         </Box>

@@ -32,14 +32,24 @@ export const useStyles = makeStyles((theme) => ({
   largeLogo: {
     height: 100,
   },
-  Logo: {
-    height: 50,
+  logo: {
+    width: 100,
+    height: 80,
   },
   cards: {
     display: 'flex',
     justifyContent: 'center',
   },
-  card: { margin: 10 },
+  card: {
+     margin: 5,
+    },
+  title: {
+    fontWeight: 'bold',
+    fontSize: '2rem',
+    marginTop: 40,
+    marginLeft: 1,
+    textAlign: 'center',
+   },
   space: {
     padding: 10,
   },

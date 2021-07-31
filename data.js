@@ -36,7 +36,7 @@ const data = {
             category: 'Sobremesas',
             name: 'Harisse',
             price: '5',
-            image: '/imagens/.jpg'
+            image: '/imagens/harisse.jpg'
         },
         {
             category: 'Sobremesas',
