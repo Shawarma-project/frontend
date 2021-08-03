@@ -19,14 +19,15 @@ mongoose.connect(process.env.MONGODB_URI, {
 const Product = mongoose.model (
     'products',
     new mongoose.Schema({
-    name: String,
-    image: String,
-    price: Number,
     category: String,
+    image: String,
+    name: String,
+    description: String,
+    price: Number,
 }));
 
 const Category = mongoose.model (
-    'Categorias',
+    'Categories',
     new mongoose.Schema({
     name: String,
     image: String
@@ -50,11 +51,11 @@ app.post('/api/products', async (req, res) => {
 });
 
 app.get('/api/categories', async (req, res) => {
-    const categorias = await Category.find({});
+    const categories = await Category.find({});
     console.log('testelog')
-    console.log(categorias);
+    console.log(categories);
 
-    res.send(categorias);
+    res.send(categories);
     });
 
     const port = process.env.PORT || 5000;

@@ -41,7 +41,7 @@ padding: 'auto',
     },
     },
   palette: {
-    primary: { main: '#ff1744' },
+    primary: { main: '#000000' },
     secondary: {
       main: '#118e16',
       contrastText: '#ffffff',
