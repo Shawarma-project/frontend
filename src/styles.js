@@ -39,6 +39,7 @@ export const useStyles = makeStyles((theme) => ({
   cards: {
     display: 'flex',
     justifyContent: 'center',
+    padding: 10,
   },
   card: {
      margin: 5,

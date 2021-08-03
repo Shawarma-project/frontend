@@ -33,7 +33,7 @@ export default function ChooseScreen(props) {
                         variant="h3"
                         component="h3"
                     >
-                        Onde você vai comer hoje?
+                      Para fazer seu pedido...
                     </Typography>
                     <Box className={styles.cards}>
                         <Card className={[styles.card, styles.space]}>
@@ -51,31 +51,11 @@ export default function ChooseScreen(props) {
                                         color="textPrimary"
                                         component="p"
                                     >
-                                        Comer aqui
+                                        Clique Aqui!
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
-                        </Card>
-                        <Card className={[styles.card, styles.space]}>
-                            <CardActionArea onClick={()=> chooseHandler('Retirar')}>
-                                <CardMedia
-                                    component="img"
-                                    alt="Take Out"
-                                    image="/imagens/comidalevar.jpg"
-                                    className={styles.media}
-                                />
-                                <CardContent>
-                                    <Typography
-                                        gutterBottom
-                                        variant="h4"
-                                        color="textPrimary"
-                                        component="p"
-                                    >
-                                        Retirar
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
+                        </Card>             
                     </Box>
                 </Box>
             </Box>

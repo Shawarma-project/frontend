@@ -12,34 +12,39 @@ import OrderScreen from './screens/OrderScreen';
 
 const theme = createTheme({
   typography: {
-    h1: { 
+    h1: {
       fontSize: '1.8rem',
       fontWeight: 'bold',
       color: '#efb810',
-      padding: '3rem',
-   },
-   h3: {
-    fontSize: '2.2rem',
-    fontWeight: 'bold',
-    color: '#efb810',
-    padding: '40px',
-  },
-  /*h4: {
-fontSize: '2rem',
-padding: 'auto',
-  },*/
+      padding: '2rem',
+    },
+    h3: {
+      fontSize: '2rem',
+      fontWeight: '100px',
+      color: '#efb810',
+      padding: '40px 20px 10px 20px',
+      lineHeight: '3rem',
+    },
+    h4: {
+      fontSize: '1.5rem',
+      fontWeight: 'bold',
+      padding: 0,
+    },
     h6: {
       fontSize: '2rem',
+      fontWeight: '1px',
       padding: '2rem',
       color: '#efb810',
-        },
+    },
     h5: {
       fontSize: '1.8rem',
       fontWeight: 'bold',
       color: 'golden',
-      padding: '2rem',
+      paddingTop: '2rem',
+      paddingLeft: '2.5rem',
+      padding: '0.6rem',
     },
-    },
+  },
   palette: {
     primary: { main: '#000000' },
     secondary: {
@@ -52,16 +57,16 @@ padding: 'auto',
 function App() {
   return (
     <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="sm">
-        <Paper>
-          <Route path="/" component={HomeScreen} exact={true}></Route>
-          <Route path="/choose" component={ChooseScreen} exact={true}></Route>
-          <Route path="/order" component={OrderScreen} exact={true}></Route>
-        </Paper>
-      </Container>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Container maxWidth="sm">
+          <Paper>
+            <Route path="/" component={HomeScreen} exact={true}></Route>
+            <Route path="/choose" component={ChooseScreen} exact={true}></Route>
+            <Route path="/order" component={OrderScreen} exact={true}></Route>
+          </Paper>
+        </Container>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

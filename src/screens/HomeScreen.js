@@ -14,6 +14,7 @@ export default function HomeScreen(props) {
                         <Logo large ></Logo>
                         <Typography component="h5" variant="h5">
                             Seja bem-vindo!
+                            <Box>اهلا و سهلا بكم</Box>
                         </Typography>
                      </Box>
                      <Box className={[styles.main, styles.center]}>
