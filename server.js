@@ -33,10 +33,7 @@ const Category = mongoose.model (
     image: String
     }));
 
-app.get('/api/products/seed',async (req, res) => {
-    const products = await Product.insertMany(data.products);
-    res.send({ products });
-});
+
 
 app.get('/api/products', async (req, res) => {
     const { category } = req.query;
@@ -79,7 +76,7 @@ app.get('/api/categories', async (req, res) => {
                 quantity: Number,
               },
             ],
-          },
+          }));
           app.post('/api/orders', async (req, res) => {
             const lastOrder = await Order.find().sort({ number: -1 }).limit(1);
             const lastNumber = lastOrder.length === 0 ? 0 : lastOrder[0].number;

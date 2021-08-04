@@ -163,14 +163,14 @@ export default function OrderScreen(props) {
                                 <Alert severity="error">{error}</Alert>
                             ) : (
                                 <>
-                                    <ListItem onclick={() => categoryClickHandler('')} button>
+                                    <ListItem onClick={() => categoryClickHandler('')} button>
                                         <Logo></Logo>
                                     </ListItem>
                                     {categories.map((category) => (
                                         <ListItem
                                             button
                                             key={category.name}
-                                            onclick={() => categoryClickHandler(category.name)}
+                                            onClick={() => categoryClickHandler(category.name)}
                                         >
                                             <Avatar alt={category.name} src={category.image} />
                                         </ListItem>

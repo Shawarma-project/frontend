@@ -10,6 +10,9 @@ import {
     ORDER_ADD_ITEM,
     ORDER_REMOVE_ITEM,
     ORDER_CLEAR,
+    ORDER_CREATE_REQUEST,
+    ORDER_CREATE_SUCCESS,
+    ORDER_CREATE_FAIL,
  } from './constants';
 
 export const setOrderType= (dispatch, orderType) => {
@@ -68,6 +71,27 @@ export const addToOrder = async (dispatch, item) => {
     return dispatch({
       type: ORDER_CLEAR,
     });
+  };
+  export const createOrder = async (dispatch, order) => {
+    dispatch({ type: ORDER_CREATE_REQUEST });
+    try {
+      const { data } = await Axios.post('/api/orders', order);
+      dispatch({
+        type: ORDER_CREATE_SUCCESS,
+        payload: data,
+      });
+      dispatch({
+      type: ORDER_CLEAR,
+    });
+      dispatch({
+        type: ORDER_CLEAR,
+      });
+    } catch (error) {
+      dispatch({
+        type: ORDER_CREATE_FAIL,
+        payload: error.message,
+      });
+    }
   };
 
 
