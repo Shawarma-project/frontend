@@ -49,6 +49,7 @@ export default function OrderScreen(props) {
     const addToOrderHandler = () => {
         addToOrder(dispatch, { ...product, quantity });
         setIsOpen(false);
+        setQuantity(1);
     };
     const cancelOrRemoveFromOrder = () => {
         removeFromOrder(dispatch, product);
@@ -244,7 +245,7 @@ export default function OrderScreen(props) {
             <Box>
                 <Box>
                     <Box className={[styles.bordered, styles.space]}>
-                        Meu pedido - {orderType} | Total: R${totalPrice} |
+                        Meu pedido - {orderType} | Total: R${totalPrice},00 |
                         Itens: {itemsCount}
                     </Box>
                     <Box className={[styles.row, styles.around]}>

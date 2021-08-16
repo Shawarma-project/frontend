@@ -1,4 +1,4 @@
-import {
+/*import {
   Box,
   Card,
   CardActionArea,
@@ -37,11 +37,11 @@ export default function ChooseScreen(props) {
                     </Typography>
                     <Box className={styles.cards}>
                         <Card className={[styles.card, styles.space]}>
-                            <CardActionArea onClick={()=> chooseHandler('Comer aqui')}>
+                            <CardActionArea onClick={()=> chooseHandler('Delivery')}>
                                 <CardMedia
                                     component="img"
-                                    alt="comeraqui"
-                                    image="/imagens/comeraqui.jpg"
+                                    alt="delivery"
+                                    image="/imagens/delivery.jpg"
                                     className={styles.media}
                                 />
                                 <CardContent>
@@ -61,4 +61,4 @@ export default function ChooseScreen(props) {
             </Box>
         </Fade>
     )
-}
+}*/
