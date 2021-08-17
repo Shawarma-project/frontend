@@ -6,11 +6,11 @@ import {
   ThemeProvider,
 } from '@material-ui/core';
 import { BrowserRouter, Route } from 'react-router-dom';
-/*import ChooseScreen from './screens/ChooseScreen';*/
+import ChooseScreen from './screens/ChooseScreen';
+import CompleteOrderScreen from './screens/CompleteOrderScreen';
 import HomeScreen from './screens/HomeScreen';
 import OrderScreen from './screens/OrderScreen';
 import ReviewScreen from './screens/ReviewScreen';
-import CompleteOrderScreen from './screens/CompleteOrderScreen';
 
 const theme = createTheme({
   typography: {
@@ -61,7 +61,7 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container maxWidth="sm">
+        <Container  maxWidth="100%">
           <Paper>
             <Route path="/" component={HomeScreen} exact={true}></Route>
             <Route path="/order" component={OrderScreen} exact={true}></Route>

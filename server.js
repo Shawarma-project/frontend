@@ -34,10 +34,7 @@ const Product = mongoose.model (
 }));
 
 
-app.get('/api/products/seed',async (req, res) => {
-    const products = await Product.insertMany(data.products);
-    res.send({ products });
-});
+
 
 app.get('/api/products', async (req, res) => {
     const { category } = req.query;
@@ -58,6 +55,47 @@ app.get('/api/categories', async (req, res) => {
 
     res.send(categories);
     });
+
+    const Order = mongoose.model(
+        'order',
+        new mongoose.Schema(
+          {
+            number: { type: Number, default: 0 },
+            orderType: String,
+            paymentType: String,
+            isPaid: { type: Boolean, default: false },
+            isReady: { type: Boolean, default: false },
+            inProgress: { type: Boolean, default: true },
+            isCanceled: { type: Boolean, default: false },
+            isDelivered: { type: Boolean, default: false },
+            totalPrice: Number,
+            taxPrice: Number,
+            orderItems: [
+              {
+                name: String,
+                price: Number,
+                quantity: Number,
+              },
+            ],
+          }));
+          app.post('/api/orders', async (req, res) => {
+            const lastOrder = await Order.find().sort({ number: -1 }).limit(1);
+            const lastNumber = lastOrder.length === 0 ? 0 : lastOrder[0].number;
+            if (
+                !req.body.orderType ||
+                !req.body.paymentType ||
+                !req.body.orderItems ||
+                req.body.orderItems.length === 0
+              ) {
+                return res.send({ message: 'Data is required.' });
+              }
+              const order = await Order({ ...req.body, number: lastNumber + 1 }).save();
+              res.send(order);
+            });
+            app.get('/api/orders', async (req, res) => {
+              const orders = await Order.find({ isDelivered: false, isCanceled: false });
+              res.send(orders);
+            });
 
     const port = process.env.PORT || 5000;
 

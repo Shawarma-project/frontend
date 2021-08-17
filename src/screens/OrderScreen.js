@@ -75,13 +75,13 @@ export default function OrderScreen(props) {
         if (!categories) {
             listCategories(dispatch);
         } else {
-            listProducts(dispatch, categories, categoryName);
+            listProducts(dispatch, categoryName);
         }
     }, [dispatch, categories, categoryName]);
 
     const categoryClickHandler = (name) => {
         setCategoryName(name);
-        listProducts(dispatch, categories, categoryName);
+        listProducts(dispatch, categoryName);
     };
 
     const previewOrderHandler = () => {
@@ -102,7 +102,7 @@ export default function OrderScreen(props) {
                 <Box className={[styles.row, styles.center]}>
                     <Button
                         variant="contained"
-                        color="primary"
+                        color="red"
                         disabled={quantity === 1}
                         onClick={(e) => quantity > 1 && setQuantity(quantity - 1)}
                     >
@@ -164,14 +164,14 @@ export default function OrderScreen(props) {
                                 <Alert severity="error">{error}</Alert>
                             ) : (
                                 <>
-                                    <ListItem onclick={() => categoryClickHandler('')} button>
+                                    <ListItem onClick={() => categoryClickHandler('')} button>
                                         <Logo></Logo>
                                     </ListItem>
                                     {categories.map((category) => (
                                         <ListItem
                                             button
                                             key={category.name}
-                                            onclick={() => categoryClickHandler(category.name)}
+                                            onClick={() => categoryClickHandler(category.name)}
                                         >
                                             <Avatar alt={category.name} src={category.image} />
                                         </ListItem>

@@ -3,6 +3,7 @@ const data = {
         {
         name: 'Lanches',
         image: '/imagens/lanches.jpg'
+
         },
         {
         name: 'Sobremesas',
@@ -19,7 +20,7 @@ const data = {
             name: 'Shawarma de Carne',
             price: '10',
             image: '/imagens/shawarmacarne.jpeg',
-            description: 'Pão árabe com Carne, tomate, alface, cebola, molho verde'
+            description: 'Pão arabe com Carne, tomate, Alface, cebola, Molho arabe',
         },
         {
             category: 'Lanches',
@@ -33,7 +34,7 @@ const data = {
             name: 'Shawarma Misto',
             price: '15',
             image: '/imagens/shawarmamisto.jpeg',
-            description: 'Pão árabe com Frango e Carne, tomate, alface, cebola, molho verde'
+            description: "Pão arabe com Frango e Carne, tomate, Alface, cebola, Molho arabe",
         },
         {
             category: 'Sobremesas',
@@ -54,7 +55,8 @@ const data = {
             name: 'Mahalabie',
             price: '4',
             image: '/imagens/mahalabie.jpg',
-            description: 'Manjar árabe, com calda de damasco e pistache'
+            description :" Mistur os delicados aromas da agua de flor de laranjeira do almasco"
+
         },
         {
             category: 'Bebidas',

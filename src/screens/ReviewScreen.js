@@ -116,11 +116,11 @@ export default function ReviewScreen(props) {
           <Logo large></Logo>
           <Typography
             gutterBottom
-            className={styles.title2}
+            className={styles.title}
             variant="h3"
             component="h3"
           >
-            Veja aqui seu pedido
+            Confirmar o pedido {} 
           </Typography>
         </Box>
 
@@ -142,7 +142,7 @@ export default function ReviewScreen(props) {
                       >
                         {orderItem.name}
                       </Typography>
-                      <Button variant="contained">EDITAR</Button>
+                      <Button variant="contained">Editar</Button>
                     </Box>
 
                     <Box className={[styles.row, styles.between]}>
