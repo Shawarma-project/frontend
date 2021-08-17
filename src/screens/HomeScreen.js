@@ -8,7 +8,7 @@ export default function HomeScreen(props) {
     const styles = useStyles();
     return (
         <Card>
-            <CardActionArea onClick={() => props.history.push('/choose')}>
+            <CardActionArea onClick={() => props.history.push('/order')}>
                 <Box className={[styles.root, styles.black]}>
                      <Box className={[styles.center, styles.golden]}>
                         <Logo large ></Logo>
@@ -21,7 +21,6 @@ export default function HomeScreen(props) {
                         <Typography component="h6" variant="h6">
                             Aqui você consegue deliciosos
                         </Typography>
-                        <img src="/imagens/shawarma.jpg" alt=""/>
                         <Typography component="h1" variant="h1">
                             Lanches Árabes
                         </Typography>

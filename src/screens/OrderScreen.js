@@ -49,6 +49,7 @@ export default function OrderScreen(props) {
     const addToOrderHandler = () => {
         addToOrder(dispatch, { ...product, quantity });
         setIsOpen(false);
+        setQuantity(1)
     };
     const cancelOrRemoveFromOrder = () => {
         removeFromOrder(dispatch, product);
@@ -74,13 +75,13 @@ export default function OrderScreen(props) {
         if (!categories) {
             listCategories(dispatch);
         } else {
-            listProducts(dispatch, categories, categoryName);
+            listProducts(dispatch, categoryName);
         }
     }, [dispatch, categories, categoryName]);
 
     const categoryClickHandler = (name) => {
         setCategoryName(name);
-        listProducts(dispatch, categories, categoryName);
+        listProducts(dispatch, categoryName);
     };
 
     const previewOrderHandler = () => {
@@ -101,7 +102,7 @@ export default function OrderScreen(props) {
                 <Box className={[styles.row, styles.center]}>
                     <Button
                         variant="contained"
-                        color="primary"
+                        color="red"
                         disabled={quantity === 1}
                         onClick={(e) => quantity > 1 && setQuantity(quantity - 1)}
                     >

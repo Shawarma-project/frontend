@@ -41,7 +41,7 @@ export const listCategories = async (dispatch) => {
 export const listProducts = async (dispatch, categoryName = '') => {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     try {
-       const { data } = await Axios.get('http://localhost:5000/api/products');
+       const { data } = await Axios.get(`http://localhost:5000/api/products?category=${categoryName}`);
        return dispatch({
         type: PRODUCT_LIST_SUCCESS,
         payload: data,

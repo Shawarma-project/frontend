@@ -175,7 +175,7 @@ export default function ReviewScreen(props) {
         <Box>
           <Box className={[styles.bordered, styles.space]}>
             Meu pedido - {orderType === 'takeout' ? 'Para levar' : 'Comer aqui'} | Taixa:
-            ${taxPrice} | Total: ${totalPrice} | Itens: {itemsCount}
+            R${taxPrice} | Total: R${totalPrice} | Itens: {itemsCount}
           </Box>
           <Box className={[styles.row, styles.around]}>
             <Button
@@ -192,7 +192,7 @@ export default function ReviewScreen(props) {
             <Button
               onClick={procedToCheckoutHandler}
               variant="contained"
-              color="secondary"
+              color="primary"
               disabled={orderItems.length === 0}
               className={styles.largeButton}
             >
