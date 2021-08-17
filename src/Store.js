@@ -21,7 +21,7 @@ const initialState = {
     categoryList: { loading: true },
     productList: { loading: true },
     order: {
-        orderType: 'Comer Aqui',
+        orderType: 'Delivery',
         orderItems: [],
     },
     orderCreate: { loading: true },

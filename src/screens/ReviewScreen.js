@@ -24,7 +24,6 @@ export default function ReviewScreen(props) {
     orderItems,
     itemsCount,
     totalPrice,
-    taxPrice,
     orderType,
   } = state.order;
   const [quantity, setQuantity] = useState(1);
@@ -62,11 +61,9 @@ export default function ReviewScreen(props) {
           maxWidth="sm"
         >
           <DialogTitle className={styles.center}>
-            Add {product.name}
+            Adicionar {product.name}
           </DialogTitle>
-          <Box
-          className={`${styles.row} ${styles.center}`}
-         >
+          <Box className={[styles.row, styles.center]}>
             <Button
               variant="contained"
               color="primary"
@@ -100,8 +97,8 @@ export default function ReviewScreen(props) {
               className={styles.largeButton}
             >
               {orderItems.find((x) => x.name === product.name)
-                ? 'Remove From Order'
-                : 'Cancel'}
+                ? 'REMOVER'
+                : 'CANCELAR'}
             </Button>
 
             <Button
@@ -111,7 +108,7 @@ export default function ReviewScreen(props) {
               size="large"
               className={styles.largeButton}
             >
-              Adicinar
+              Adicionar
             </Button>
           </Box>
         </Dialog>
@@ -151,17 +148,10 @@ export default function ReviewScreen(props) {
                     <Box className={[styles.row, styles.between]}>
                       <Typography
                         variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        {orderItem.calorie} Preço
-                      </Typography>
-                      <Typography
-                        variant="body2"
                         color="textPrimary"
                         component="p"
                       >
-                        {orderItem.quantity} x ${orderItem.price}
+                        {orderItem.quantity} x R${orderItem.price},00
                       </Typography>
                     </Box>
                   </CardContent>
@@ -174,8 +164,7 @@ export default function ReviewScreen(props) {
       <Box>
         <Box>
           <Box className={[styles.bordered, styles.space]}>
-            Meu pedido - {orderType === 'takeout' ? 'Para levar' : 'Comer aqui'} | Taixa:
-            R${taxPrice} | Total: R${totalPrice} | Itens: {itemsCount}
+            Meu pedido: {orderType === 'Delivery' ? 'Delivery' : 'Delivery'} | Total: R${totalPrice},00 | Itens: {itemsCount}
           </Box>
           <Box className={[styles.row, styles.around]}>
             <Button
@@ -183,7 +172,7 @@ export default function ReviewScreen(props) {
                 props.history.push(`/order`);
               }}
               variant="contained"
-              color="primary"
+              color="secondary"
               className={styles.largeButton}
             >
               Voltar
@@ -192,11 +181,11 @@ export default function ReviewScreen(props) {
             <Button
               onClick={procedToCheckoutHandler}
               variant="contained"
-              color="primary"
+              color="secondary"
               disabled={orderItems.length === 0}
               className={styles.largeButton}
             >
-              Cuntinuar
+              Continuar
             </Button>
           </Box>
         </Box>

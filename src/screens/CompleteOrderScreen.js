@@ -1,71 +1,57 @@
-import React, { useContext, useEffect } from 'react';
-import { Box, Button, CircularProgress, Typography } from '@material-ui/core';
+import { Box, CircularProgress, Typography } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import WhatsApp from '@material-ui/icons/WhatsApp';
 import { useStyles } from '../styles';
 import Logo from '../components/Logo';
-import { Store } from '../Store';
-import { Alert } from '@material-ui/lab';
-import { createOrder } from '../actions';
 export default function CompleteOrderScreen(props) {
-  const styles = useStyles();
-  const { state, dispatch } = useContext(Store);
-  const { order } = state;
-  const { loading, error, newOrder } = state.orderCreate;
+    const styles = useStyles();
 
-  useEffect(() => {
-    if (order.orderItems.length > 0) {
-      createOrder(dispatch, order);
-    }
-  }, [order]);
-
-  return (
-    <Box className={[styles.root, styles.navy]}>
-      <Box className={[styles.main, styles.center]}>
-        <Box>
-          <Logo large></Logo>
-          {loading ? (
-            <CircularProgress></CircularProgress>
-          ) : error ? (
-            <Alert severity="error">{error}</Alert>
-          ) : (
-            <>
-              <Typography
-                gutterBottom
-                className={styles.title}
-                variant="h3"
-                component="h3"
-              >
-                Seu pedido esta pronto!
-              </Typography>
-              <Typography
-                gutterBottom
-                className={styles.title}
-                variant="h1"
-                component="h1"
-              >
-                Obrigado! شكرا
-              </Typography>
-              <Typography
-                gutterBottom
-                className={styles.title}
-                variant="h3"
-                component="h3"
-              >
-                Pedido numero {newOrder.number}
-              </Typography>
-            </>
-          )}
+    return (
+        <Box className={[styles.root, styles.navy]}>
+            <Box className={[styles.main, styles.center]}>
+                <Box>
+                    <Logo large></Logo>
+                    <CircularProgress></CircularProgress>
+                    <>
+                        <Typography
+                            gutterBottom
+                            className={styles.title3}
+                            variant="h3"
+                            component="h3"
+                        >
+                            PEDIDO REALIZADO COM SUCESSO
+                        </Typography>
+                        <img className={styles.img1} src="/imagens/alac.png" alt=""/>
+                        <Typography
+                            gutterBottom
+                            className={styles.title4}
+                            variant="h3"
+                            component="h3"
+                        >
+                            Você receberá atualizações através do WhatsApp
+                        </Typography>
+                        <Box className={[styles.center, styles.space]}>
+                            <Button
+                                onClick={() => props.history.push('/')}
+                                variant="contained"
+                                color="secondary"
+                                className={styles.largeButtonW}
+                                startIcon={<WhatsApp />}
+                            >
+                                Continuar no WhatsApp
+                            </Button>
+                        </Box>
+                        <Typography
+                            gutterBottom
+                            className={styles.title5}
+                            variant="h1"
+                            component="h1"
+                        >
+                            Obrigado! شكرا
+                        </Typography>
+                    </>
+                </Box>
+            </Box>
         </Box>
-      </Box>
-      <Box className={[styles.center, styles.space]}>
-        <Button
-          onClick={() => props.history.push('/')}
-          variant="contained"
-          color="primary"
-          className={styles.largeButton}
-        >
-          Pedir de novo
-        </Button>
-      </Box>
-    </Box>
-  );
+    );
 }

@@ -50,7 +50,7 @@ const theme = createTheme({
   palette: {
     primary: { main: '#000000' },
     secondary: {
-      main: '#118e16',
+      main: '#000000',
       contrastText: '#ffffff',
     },
   },
@@ -64,14 +64,9 @@ function App() {
         <Container  maxWidth="100%">
           <Paper>
             <Route path="/" component={HomeScreen} exact={true}></Route>
-            <Route path="/choose" component={ChooseScreen} exact={true}></Route>
             <Route path="/order" component={OrderScreen} exact={true}></Route>
-            <Route path="/review" component={ReviewScreen} exact></Route>
-            <Route
-              path="/complete"
-              component={CompleteOrderScreen}
-              exact
-            ></Route>
+            <Route path="/review" component={ReviewScreen} exact={true}></Route>
+            <Route path="/complete" component={CompleteOrderScreen} exact={true}></Route>
           </Paper>
         </Container>
       </ThemeProvider>

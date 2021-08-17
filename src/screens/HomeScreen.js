@@ -3,6 +3,7 @@ import {Box, Card, CardActionArea, Typography} from '@material-ui/core';
 import TouchAppIcon from '@material-ui/icons/TouchApp';
 import { useStyles } from '../styles';
 import Logo from '../components/Logo';
+import '../App.css';
 
 export default function HomeScreen(props) {
     const styles = useStyles();
@@ -21,6 +22,7 @@ export default function HomeScreen(props) {
                         <Typography component="h6" variant="h6">
                             Aqui você consegue deliciosos
                         </Typography>
+                        <img className={styles.img} src="/imagens/shawarma.jpg" alt=""/>
                         <Typography component="h1" variant="h1">
                             Lanches Árabes
                         </Typography>

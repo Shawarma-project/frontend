@@ -25,9 +25,9 @@ const data = {
         {
             category: 'Lanches',
             name: 'Shawarma de Frango',
-            price: '55',
+            price: '12',
             image: '/imagens/shawarmafrango.jpeg',
-            description: 'Frango, tomate, Alface, cebola, Molho arabe',
+            description: 'Pão árabe com Frango, tomate, alface, cebola, molho verde'
         },
         {
             category: 'Lanches',
@@ -41,14 +41,14 @@ const data = {
             name: 'Harisse',
             price: '5',
             image: '/imagens/harisse.jpg',
-            description: "Bolo de simolina "
+            description: 'Bolo de Simolina'
         },
         {
             category: 'Sobremesas',
             name: 'Knefe',
             price: '6',
             image: '/imagens/knefe.jpg',
-            description: "Um doce arabe feito de vermicelli (Um tipo de macarrao bastane fino)"
+            description: 'Doce feito de vermicelli e queijo cremoso; regado com calda de açúcar'
         },
         {
             category: 'Sobremesas',
@@ -62,21 +62,36 @@ const data = {
             category: 'Bebidas',
             name: 'Coca-Cola',
             price: '3',
-            image: '/imagens/cocacola.jpg'
+            image: '/imagens/cocacola.jpg',
+            description: '350ml'
         },
         {
             category: 'Bebidas',
             name: 'Guaraná',
             price: '3',
             image: '/imagens/guaraná.jpg',
-            description:" 350 Ml"
+            description: '350ml'
         },
         {
             category: 'Bebidas',
             name: 'Sprite',
             price: '3',
             image: '/imagens/sprite.png',
-            description:" 350 Ml"
+            description: '350ml'
+        },
+        {
+            category: 'Bebidas',
+            name: 'Fanta Uva',
+            price: '3',
+            image: '/imagens/fantauva.png',
+            description: '350ml'
+        },
+        {
+            category: 'Bebidas',
+            name: 'Coca-Cola',
+            price: '3',
+            image: '/imagens/cocacola2lt.jpg',
+            description: '2lt'
         },
     ],
 };

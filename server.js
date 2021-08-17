@@ -16,6 +16,13 @@ mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
 });
 
+const Category = mongoose.model (
+    'categories',
+    new mongoose.Schema({
+    name: String,
+    image: String
+    }));
+
 const Product = mongoose.model (
     'products',
     new mongoose.Schema({
@@ -26,12 +33,6 @@ const Product = mongoose.model (
     price: Number,
 }));
 
-const Category = mongoose.model (
-    'Categories',
-    new mongoose.Schema({
-    name: String,
-    image: String
-    }));
 
 
 
