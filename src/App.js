@@ -61,7 +61,7 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container  maxWidth="100%">
+        <Container  maxWidth="sm">
           <Paper>
             <Route path="/" component={HomeScreen} exact={true}></Route>
             <Route path="/order" component={OrderScreen} exact={true}></Route>
