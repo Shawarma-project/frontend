@@ -22,6 +22,7 @@ const data = {
             image: '/imagens/shawarmacarne.jpeg',
             description: 'Pão arabe com Carne, tomate, Alface, cebola, Molho arabe',
         },
+        
         {
             category: 'Lanches',
             name: 'Shawarma de Frango',
